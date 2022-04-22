@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uet_hackathon_2022/api/api_services.dart';
+import 'package:uet_hackathon_2022/ui/authen/screens/register_screen.dart';
 import 'package:uet_hackathon_2022/ui/authen/screens/sign_in.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/confirm_button.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/name_field.dart';
@@ -102,25 +103,23 @@ class _RolePickScreenState extends State<RolePickScreen> {
                   MySubmitElevatedButton(
                     onPressed: () async {
                       // TODO: Validate
-                      var value = await ApiServices().postSignUp(
-                          nameController.text,
-                          widget.phoneNumber,
-                          widget.password,
-                          widget.address,
-                          'farmer'); // TODO: Làm hộ đi :)) chưa nghiên cứu
-                      final error = value.error;
-                      if (error != null) {
-                        // TODO: Waiting for popup design
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(error),
-                            duration: const Duration(seconds: 3),
-                          ),
-                        );
+                      try {
+                        var value = await ApiServices().signUp(
+                            nameController.text,
+                            widget.phoneNumber,
+                            widget.password,
+                            widget.address,
+                            'farmer'); // TODO: 'farmer' hoặc 'business'
+                        var route = MaterialPageRoute(
+                            builder: (context) => const LoginScreen());
+                        Navigator.push(context, route);
+                      } on Exception catch (e) {
+                        // TODO: Chưa design
+                        print(e);
+                        var route = MaterialPageRoute(
+                            builder: (context) => const SignUpScreen());
+                        Navigator.push(context, route);
                       }
-                      var route = MaterialPageRoute(
-                          builder: (context) => const LoginScreen());
-                      Navigator.push(context, route);
                     },
                     submitText: 'Hoàn thành',
                     textColor: const Color(themeColor),
