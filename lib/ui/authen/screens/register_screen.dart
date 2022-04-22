@@ -54,7 +54,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               top: screenSize.height * 0.45,
               child: Column(
                 children: [
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Container(
                     constraints: BoxConstraints(
                       maxWidth:
@@ -77,7 +79,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           MySubmitElevatedButton(
                             onPressed: () {
                               var route = MaterialPageRoute(
-                                  builder: (context) => const RolePickScreen());
+                                  builder: (context) => RolePickScreen(
+                                        phoneNumber: phoneNumberController.text,
+                                        address: addressController.text,
+                                        password: passwordController.text,
+                                      ));
                               Navigator.push(context, route);
                             },
                             submitText: 'Tiếp tục',

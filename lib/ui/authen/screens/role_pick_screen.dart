@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uet_hackathon_2022/api/api_services.dart';
 import 'package:uet_hackathon_2022/ui/authen/screens/sign_in.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/confirm_button.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/name_field.dart';
@@ -10,7 +11,23 @@ import '../widget/phone_number_field.dart';
 import '../widget/role_picker.dart';
 
 class RolePickScreen extends StatefulWidget {
-  const RolePickScreen({Key? key}) : super(key: key);
+  String _phoneNumber;
+  String _password;
+  String _address;
+
+  RolePickScreen({
+    Key? key,
+    required String phoneNumber,
+    required String password,
+    required String address,
+  })  : _phoneNumber = phoneNumber,
+        _password = password,
+        _address = address,
+        super(key: key);
+
+  get phoneNumber => _phoneNumber;
+  get password => _password;
+  get address => _address;
 
   @override
   State<RolePickScreen> createState() => _RolePickScreenState();
@@ -83,7 +100,24 @@ class _RolePickScreenState extends State<RolePickScreen> {
                     height: 20,
                   ),
                   MySubmitElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
+                      // TODO: Validate
+                      var value = await ApiServices().postSignUp(
+                          nameController.text,
+                          widget.phoneNumber,
+                          widget.password,
+                          widget.address,
+                          'farmer'); // TODO: Làm hộ đi :)) chưa nghiên cứu
+                      final error = value.error;
+                      if (error != null) {
+                        // TODO: Waiting for popup design
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(error),
+                            duration: const Duration(seconds: 3),
+                          ),
+                        );
+                      }
                       var route = MaterialPageRoute(
                           builder: (context) => const LoginScreen());
                       Navigator.push(context, route);
