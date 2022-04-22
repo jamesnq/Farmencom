@@ -16,9 +16,17 @@ const String passwordPrefixIcon = 'assets/password.png';
 const String phonecallPrefixIcon = 'assets/phonecall.png';
 const String hideShowPassword = 'assets/hideshow.png';
 const String addressPrefixIcon = 'assets/address-prefix.png';
+const String namePrefixIcon = 'assets/name_prefix_icon.png';
 
 const String farmerIcon = 'assets/farmer_icon.png';
 const String companyIcon = 'assets/company_icon.png';
+
+const String product1 = 'assets/product1.png';
+const String product2 = 'assets/product2.png';
+const String product3 = 'assets/product3.png';
+const String product4 = 'assets/product4.png';
+const String product5 = 'assets/product5.png';
+const String product6 = 'assets/product6.png';
 
 const int themeColor = 0xFF358873;
 const int lightThemeColor = 0xFF8DC3A7;

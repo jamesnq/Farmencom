@@ -21,12 +21,13 @@ class MySubmitElevatedButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         maximumSize: Size(
           screenSize.width > 500 ? 480 : screenSize.width * 0.8,
           60,
         ),
         minimumSize: Size(
-          screenSize.width > 500 ? 462.8 : screenSize.width * 0.65,
+          screenSize.width > 500 ? 462.8 : screenSize.width * 0.8,
           60,
         ),
         shape: RoundedRectangleBorder(

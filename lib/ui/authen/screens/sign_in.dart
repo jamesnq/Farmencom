@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uet_hackathon_2022/screens/tab_screen.dart';
 import 'package:uet_hackathon_2022/ui/authen/screens/register_screen.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/confirm_button.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/password_field.dart';
@@ -117,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           MySubmitElevatedButton(
                             onPressed: () {
                               var route = MaterialPageRoute(
-                                  builder: (context) => const HomeScreen());
+                                  builder: (context) => const TabScreen());
                               Navigator.push(context, route);
                             },
                             submitText: 'Đăng nhập',

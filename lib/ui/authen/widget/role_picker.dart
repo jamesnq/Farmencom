@@ -18,18 +18,18 @@ class _RolePickerState extends State<RolePicker> {
     final screenSize = MediaQuery.of(context).size;
     return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18),
+        ),
+        primary: Colors.white,
         maximumSize: Size(
           screenSize.width > 500 ? 480 : screenSize.width * 0.8,
           60,
         ),
         minimumSize: Size(
-          screenSize.width > 500 ? 462.8 : screenSize.width * 0.65,
+          screenSize.width > 500 ? 462.8 : screenSize.width * 0.8,
           60,
         ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(18),
-        ),
-        primary: Colors.white,
       ),
       onPressed: () {
 

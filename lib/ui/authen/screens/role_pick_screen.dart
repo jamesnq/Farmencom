@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:uet_hackathon_2022/ui/authen/screens/sign_in.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/confirm_button.dart';
+import 'package:uet_hackathon_2022/ui/authen/widget/name_field.dart';
 import 'package:uet_hackathon_2022/ui/home_screen/home_screen.dart';
 
 import '../../../constants/constants.dart';
@@ -16,6 +18,13 @@ class RolePickScreen extends StatefulWidget {
 
 class _RolePickScreenState extends State<RolePickScreen> {
   final _form = GlobalKey<FormState>();
+  TextEditingController nameController = TextEditingController();
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,19 +60,6 @@ class _RolePickScreenState extends State<RolePickScreen> {
               top: screenSize.height * 0.45,
               child: Column(
                 children: [
-                  const Center(
-                    child: Text(
-                      'Bạn là?',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 27,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
                   Container(
                     constraints: BoxConstraints(
                       maxWidth:
@@ -72,33 +68,29 @@ class _RolePickScreenState extends State<RolePickScreen> {
                           ? 462.8
                           : screenSize.width * 0.65,
                     ),
-                    child: Column(
-                      children: [
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const RolePicker(
-                            prefixIcon: companyIcon, text: 'Doanh nghiệp'),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const RolePicker(
-                            prefixIcon: farmerIcon, text: 'Nông dân'),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        MySubmitElevatedButton(
-                          onPressed: () {
-                            var route = MaterialPageRoute(
-                                builder: (context) => const HomeScreen());
-                            Navigator.push(context, route);
-                          },
-                          submitText: 'Hoàn thành',
-                          textColor: const Color(themeColor),
-                        ),
-                      ],
-                    ),
-                  )
+                    child: NameField(nameController: nameController),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const RolePicker(
+                      prefixIcon: companyIcon, text: 'Doanh nghiệp'),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const RolePicker(prefixIcon: farmerIcon, text: 'Nông dân'),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  MySubmitElevatedButton(
+                    onPressed: () {
+                      var route = MaterialPageRoute(
+                          builder: (context) => const LoginScreen());
+                      Navigator.push(context, route);
+                    },
+                    submitText: 'Hoàn thành',
+                    textColor: const Color(themeColor),
+                  ),
                 ],
               ),
             )
