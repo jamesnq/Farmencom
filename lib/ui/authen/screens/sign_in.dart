@@ -4,7 +4,7 @@ import 'package:uet_hackathon_2022/ui/authen/screens/register_screen.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/confirm_button.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/password_field.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/phone_number_field.dart';
-import 'package:uet_hackathon_2022/ui/home_screen/home_screen.dart';
+import 'package:uet_hackathon_2022/ui/home_screen/screens/home_screen.dart';
 
 import '../../../constants/constants.dart';
 

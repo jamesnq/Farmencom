@@ -12,6 +12,10 @@ const String farmerAccount = 'assets/farmer_account.png';
 
 const String logo = 'assets/logo.png';
 
+const String chat = 'assets/chat.png';
+const String call = 'assets/call.png';
+const String accept = 'assets/accept.png';
+
 const String passwordPrefixIcon = 'assets/password.png';
 const String phonecallPrefixIcon = 'assets/phonecall.png';
 const String hideShowPassword = 'assets/hideshow.png';

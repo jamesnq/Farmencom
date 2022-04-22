@@ -22,4 +22,5 @@ List<Product> allProduct = [
   Product(name: 'Quả', price: 50000, banner: product2),
   Product(name: 'Bắp cải', price: 50000, banner: product1),
   Product(name: 'Cà chua', price: 50000, banner: product3),
+  Product(name: 'Con lợn con mèo méo meo', price: 50000, banner: product3),
 ];

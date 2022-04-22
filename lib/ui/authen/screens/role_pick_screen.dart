@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uet_hackathon_2022/ui/authen/screens/sign_in.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/confirm_button.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/name_field.dart';
-import 'package:uet_hackathon_2022/ui/home_screen/home_screen.dart';
+import 'package:uet_hackathon_2022/ui/home_screen/screens/home_screen.dart';
 
 import '../../../constants/constants.dart';
 import '../widget/password_field.dart';
