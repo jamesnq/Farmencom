@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uet_hackathon_2022/api/api_services.dart';
 import 'package:uet_hackathon_2022/screens/tab_screen.dart';
 import 'package:uet_hackathon_2022/ui/authen/screens/register_screen.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/confirm_button.dart';
@@ -97,7 +98,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 onTap: () {
                                   // Navigator.of(context).pushNamed(SignUpScreen.routeName)
                                   var route = MaterialPageRoute(
-                                      builder: (context) => const SignUpScreen());
+                                      builder: (context) =>
+                                          const SignUpScreen());
                                   Navigator.push(context, route);
                                 },
                                 child: const Text(
@@ -116,10 +118,21 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 30,
                           ),
                           MySubmitElevatedButton(
-                            onPressed: () {
-                              var route = MaterialPageRoute(
-                                  builder: (context) => const TabScreen());
-                              Navigator.push(context, route);
+                            onPressed: () async {
+                              try {
+                                await ApiServices().login(
+                                    phoneNumberController.text,
+                                    passwordController.text);
+                                var route = MaterialPageRoute(
+                                    builder: (context) => const TabScreen());
+                                Navigator.push(context, route);
+                              } on Exception catch (e) {
+                                // TODO: Chưa design
+                                print(e);
+                                var route = MaterialPageRoute(
+                                    builder: (context) => const SignUpScreen());
+                                Navigator.push(context, route);
+                              }
                             },
                             submitText: 'Đăng nhập',
                             textColor: const Color(themeColor),
