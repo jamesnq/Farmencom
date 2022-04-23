@@ -32,6 +32,16 @@ const String product4 = 'assets/product4.png';
 const String product5 = 'assets/product5.png';
 const String product6 = 'assets/product6.png';
 
+const String accountAvatar = 'assets/account_avatar.png';
+const String notificationIcon = 'assets/notification_icon.png';
+const String staticalIcon = 'assets/statical_icon.png';
+const String storageIcon = 'assets/storage_icon.png';
+const String walletIcon = 'assets/wallet_icon.png';
+
+const String orderWaiting = 'assets/dang_doi_dat_hang.png';
+const String orderRequest = 'assets/order_request.png';
+const String producing = 'assets/producing.png';
+
 const int themeColor = 0xFF358873;
 const int lightThemeColor = 0xFF8DC3A7;
 

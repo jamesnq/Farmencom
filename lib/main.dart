@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uet_hackathon_2022/ui/intro_screen/intro_screen.dart';
-import 'package:uet_hackathon_2022/ui/authen/screens/sign_in.dart';
-import 'package:uet_hackathon_2022/screens/tab_screen.dart';
 
 
 void main() {
@@ -18,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'Be VietNam Pro',
         primarySwatch: Colors.blue,
       ),
       home: const IntroScreen(),

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:uet_hackathon_2022/api/api_services.dart';
 import 'package:uet_hackathon_2022/screens/tab_screen.dart';
@@ -5,7 +6,6 @@ import 'package:uet_hackathon_2022/ui/authen/screens/register_screen.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/confirm_button.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/password_field.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/phone_number_field.dart';
-import 'package:uet_hackathon_2022/ui/home_screen/screens/home_screen.dart';
 
 import '../../../constants/constants.dart';
 
@@ -128,9 +128,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Navigator.push(context, route);
                               } on Exception catch (e) {
                                 // TODO: Chưa design
-                                print(e);
+                                if (kDebugMode) {
+                                  print(e);
+                                }
                                 var route = MaterialPageRoute(
-                                    builder: (context) => const SignUpScreen());
+                                    builder: (context) => const TabScreen());
                                 Navigator.push(context, route);
                               }
                             },

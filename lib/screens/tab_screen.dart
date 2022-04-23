@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uet_hackathon_2022/constants/constants.dart';
 
 import '../ui/account_screen/account_screen.dart';
-import '../ui/bag_screen/bag_screen.dart';
+import '../ui/barn_screen/barn_screen.dart';
 import '../ui/home_screen/screens/home_screen.dart';
 
 
@@ -16,7 +16,7 @@ class TabScreen extends StatefulWidget {
 class _TabScreenState extends State<TabScreen> {
   final screen = [
     const HomeScreen(),
-    const BagScreen(),
+    const BarnScreen(),
     const AccountScreen(),
   ];
   int _selectedIndex = 0;

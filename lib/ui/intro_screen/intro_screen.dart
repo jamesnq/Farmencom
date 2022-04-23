@@ -36,7 +36,7 @@ class IntroScreen extends StatelessWidget {
               children: [
                 const Center(
                   child: Text(
-                    'Farmencom',
+                    'Nông sản việt',
                     style: TextStyle(
                       color: Color(themeColor),
                       fontWeight: FontWeight.bold,

@@ -25,18 +25,18 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         automaticallyImplyLeading: true,
         title: Text(widget.product.name),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          children: [
-            Column(
-              children: [
-                Image.asset(chat),
-                Text('Chat'),
-              ],
-            )
-          ],
-        ),
-      ),
+      // bottomNavigationBar: BottomAppBar(
+      //   child: Row(
+      //     children: [
+      //       Column(
+      //         children: [
+      //           Image.asset(chat),
+      //           Text('Chat'),
+      //         ],
+      //       )
+      //     ],
+      //   ),
+      // ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

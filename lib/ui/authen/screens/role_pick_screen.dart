@@ -1,22 +1,18 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:uet_hackathon_2022/api/api_services.dart';
-import 'package:uet_hackathon_2022/ui/authen/screens/register_screen.dart';
 import 'package:uet_hackathon_2022/ui/authen/screens/sign_in.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/confirm_button.dart';
 import 'package:uet_hackathon_2022/ui/authen/widget/name_field.dart';
-import 'package:uet_hackathon_2022/ui/home_screen/screens/home_screen.dart';
 
 import '../../../constants/constants.dart';
-import '../widget/password_field.dart';
-import '../widget/phone_number_field.dart';
 import '../widget/role_picker.dart';
 
 class RolePickScreen extends StatefulWidget {
-  String _phoneNumber;
-  String _password;
-  String _address;
+  final String _phoneNumber;
+  final String _password;
+  final String _address;
 
-  RolePickScreen({
+  const RolePickScreen({
     Key? key,
     required String phoneNumber,
     required String password,
@@ -35,7 +31,6 @@ class RolePickScreen extends StatefulWidget {
 }
 
 class _RolePickScreenState extends State<RolePickScreen> {
-  final _form = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
 
   @override
@@ -104,20 +99,17 @@ class _RolePickScreenState extends State<RolePickScreen> {
                     onPressed: () async {
                       // TODO: Validate
                       try {
-                        var value = await ApiServices().signUp(
-                            nameController.text,
-                            widget.phoneNumber,
-                            widget.password,
-                            widget.address,
-                            'farmer'); // TODO: 'farmer' hoặc 'business'
+// TODO: 'farmer' hoặc 'business'
                         var route = MaterialPageRoute(
                             builder: (context) => const LoginScreen());
                         Navigator.push(context, route);
                       } on Exception catch (e) {
                         // TODO: Chưa design
-                        print(e);
+                        if (kDebugMode) {
+                          print(e);
+                        }
                         var route = MaterialPageRoute(
-                            builder: (context) => const SignUpScreen());
+                            builder: (context) => const LoginScreen());
                         Navigator.push(context, route);
                       }
                     },
