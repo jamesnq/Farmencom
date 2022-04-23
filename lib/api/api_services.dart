@@ -234,16 +234,11 @@ class ApiServices {
     }
   }
 
-  Future<List<ItemModel>> getBoughtItems() async {
-    final response = await get('$baseUrl/user/bought');
-    if (response.statusCode == 200) {
-      final res = json.decode(response.body) as List<dynamic>;
-      return res.map((item) => ItemModel.fromJson(item)).toList();
-    } else {
-      throw Exception('Failed to load items');
-    }
-  }
+  // Tab Barn / Kho
+  // Sản phẩm đã mua của doanh nghiệp - Tab 2 của doanh nghiệp
+  // Future<List<
 
+  // Sản phẩm đã yêu cầu của nông dân (pending, accepted, rejected) - Tab 2 của nông dân
   Future<List<ItemModel>> getRequestedItems() async {
     final response = await get('$baseUrl/user/requested');
     if (response.statusCode == 200) {
@@ -254,6 +249,7 @@ class ApiServices {
     }
   }
 
+  // Sản phẩm đã chấp nhận yêu cầu (tab 3 của cả 2 role)
   Future<List<ItemModel>> getAcceptedItems() async {
     final response = await get('$baseUrl/user/accepted');
     if (response.statusCode == 200) {
@@ -261,6 +257,35 @@ class ApiServices {
       return res.map((item) => ItemModel.fromJson(item)).toList();
     } else {
       throw Exception('Failed to load items');
+    }
+  }
+
+  // Tab 2 của doanh nghiệp
+  Future<List<ItemRequestModel>> getPendingRequests() async {
+    final response = await get('$baseUrl/user/pending');
+    if (response.statusCode == 200) {
+      final res = json.decode(response.body) as List<dynamic>;
+      return res.map((item) => ItemRequestModel.fromJson(item)).toList();
+    } else {
+      throw Exception('Failed to load items');
+    }
+  }
+
+  // Tab 1 của 2 roles
+  Future<List<ItemModel>> getListingItems() async {
+    final response = await get('$baseUrl/user/listing');
+    if (response.statusCode == 200) {
+      final res = json.decode(response.body) as List<dynamic>;
+      return res.map((item) => ItemModel.fromJson(item)).toList();
+    } else {
+      throw Exception('Failed to load items');
+    }
+  }
+
+  Future<void> submitCart() async {
+    final response = await post('$baseUrl/user/cart/submit', {});
+    if (response.statusCode != 200) {
+      throw Exception('Failed to buy items');
     }
   }
 }
